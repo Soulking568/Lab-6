@@ -1,3 +1,7 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         // Create a weighted graph
@@ -26,6 +30,11 @@ public class Main {
 
         // Perform Dijkstra's algorithm
         Search<String> dijkstra = new DijkstraSearch<>();
-        System.out.println("Dijkstra's shortest path: " + dijkstra.search(graph, vertexA));
+        List<Vertex<String>> shortestPath = dijkstra.search(graph, vertexA);
+        System.out.print("Dijkstra's shortest path: ");
+        for (Vertex<String> vertex : shortestPath) {
+            System.out.print(vertex.getData() + " ");
+        }
+        System.out.println();
     }
 }
